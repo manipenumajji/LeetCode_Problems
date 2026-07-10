@@ -5,9 +5,10 @@ class Solution:
             if nums[i] not in seen:
                 seen[nums[i]]=1
             else:
-                seen[nums[i]]+=1
-                return True 
-        return False        
+                seen[nums[i]]+=1   
+                if seen[nums[i]]>=2:
+                    return True
+        return False    
 
                 
                      

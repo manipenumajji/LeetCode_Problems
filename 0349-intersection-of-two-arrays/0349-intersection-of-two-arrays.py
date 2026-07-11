@@ -1,12 +1,23 @@
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        x=[]
-        for i in range(len(nums1)):
-            for j in range(len(nums2)):
-                if nums1[i]==nums2[j]:
-                    x.append(nums1[i])
-        k=list(set(x))
-        return k        
+        seen={}
+        freq={}
+        m=[]
+        for i in nums1:
+            if i not in seen:
+                seen[i]=1
+            else:
+                seen[i]+=1
+        for j in nums2:
+            if j not in freq:
+                freq[j]=1
+            else:
+                freq[j]+=1
+        for i in seen:
+            if i in freq:
+                m.append(i)
+        return m                               
+               
         
 nums1=[1,2,2,1]
 nums2=[2,2]
